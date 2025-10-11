@@ -1,0 +1,57 @@
+.schemaContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+            "img number"
+            "title title"
+            "description description"
+            "action action";
+    border-radius: 10px;
+    padding-block: 32px;
+    background-color: white;
+
+    img, span, h3, p, a{
+        padding-inline: 32px;
+    }
+
+    img{
+        grid-area: img;
+        width: 64px;
+        height: 64px;
+        margin-block-end: 24px;
+    }
+
+    span{
+        grid-area: number;
+        font-size: 56px;
+        font-weight: bolder;
+        justify-self: end;
+        color: rgba(243, 198, 6, 0.41);;
+    }
+
+    h3{
+        grid-area: title;
+        font-size: 24px;
+        font-family: "Playfair Display",Georgia,serif;
+        color: #294056;
+        margin-block-start: 0;
+        margin-block-end: 16px;
+    }
+
+    p{
+        grid-area: description;
+        font-size: 18px;
+        font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+        color: rgba(41, 64, 86, 0.63);
+        /*padding: 0;*/
+        justify-self: left;
+    }
+
+    a{
+        grid-area: action;
+        font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+        font-size: 16px;
+        color: rgba(41, 64, 86, 0.78);
+    }
+}

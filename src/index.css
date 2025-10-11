@@ -1,0 +1,17 @@
+:root {
+    --gold: rgba(243, 198, 6, 0.96);
+    --primary: linear-gradient(to bottom, #294056, #293F55);
+    /*--gold: 45 75% 55%;*/
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 180px; /* если у тебя фиксированный header */
+}
+
+
+
+body{
+    background: var(--primary);
+    margin: 0;
+}

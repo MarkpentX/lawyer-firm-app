@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.headerContainer {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding-inline: 1.5rem;
+    margin-inline: auto;
+    max-width: 1400px;
+    margin-block-start: 20px;
+
+    background: var(--primary);
+    /*color: #e2b736;*/
+
+    nav {
+        justify-self: center;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+
+        li a {
+            text-decoration: none;
+            font-style: normal;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 16px;
+            color: white;
+        }
+
+        li a:hover {
+            color: var(--gold);
+            transition: color 0.4s ease;
+        }
+
+    }
+
+    img {
+        justify-self: start;
+        width: 150px;
+        height: auto;
+        margin: 0;
+    }
+
+    button {
+        justify-self: end;
+        padding-inline: 20px;
+        padding-block: 13px;
+        background-color: var(--gold);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: var(--primary);
+    }
+
+    button:hover {
+        background-color: rgb(243, 198, 6);
+        transition: background-color 0.2s;
+    }
+}
+
+
+/*@media screen and (max-width: 800px){*/
+/*    .headerContainer button{*/
+/*        display: none;*/
+/*    }*/
+/*}*/
+
+
+
+/* --- Адаптив под хедер --- */
+
+@media screen and (max-width: 768px) {
+    .headerContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1rem;
+    }
+
+    .headerContainer img {
+        width: 110px;
+        height: auto;
+    }
+
+    .headerContainer nav {
+        display: none;
+    }
+
+    .headerContainer button {
+        padding-inline: 16px;
+        padding-block: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+}
+
+/* Маленькие мобильные */
+@media screen and (max-width: 480px) {
+    .headerContainer img {
+        width: 90px;
+    }
+
+    .headerContainer button {
+        padding-inline: 12px;
+        padding-block: 8px;
+        font-size: 13px;
+    }
+}

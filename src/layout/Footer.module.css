@@ -1,0 +1,70 @@
+.footerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 48px;
+    padding-inline: 200px;
+
+    img{
+        width: 170px;
+        height: auto;
+    }
+
+    small{
+        font-size: 14px;
+        color: rgba(249, 247, 242, 0.7);
+        font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+    }
+}
+
+/* --- Адаптив под футер --- */
+
+@media screen and (max-width: 992px) {
+    .footerContainer {
+        padding-inline: 80px;
+        padding-block: 40px;
+    }
+
+    .footerContainer img {
+        width: 140px;
+    }
+
+    .footerContainer small {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footerContainer {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        padding-inline: 40px;
+        padding-block: 30px;
+    }
+
+    .footerContainer img {
+        width: 130px;
+    }
+
+    .footerContainer small {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footerContainer {
+        padding-inline: 20px;
+        padding-block: 25px;
+    }
+
+    .footerContainer img {
+        width: 110px;
+    }
+
+    .footerContainer small {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}

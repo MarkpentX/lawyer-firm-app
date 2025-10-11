@@ -1,0 +1,114 @@
+/*
+ * Стили для DetailsItem.module.css
+ * Используется SCSS-подобный синтаксис для вложенных правил.
+ */
+
+/* ========================================= */
+/* Стили для контейнера DetailsItemContainer  */
+/* Имитируем стили Radix/Tailwind: тень, белый фон */
+/* ========================================= */
+.detailsItemContainer {
+    /* Общий вид */
+    background-color: #fff;
+    border: 1px solid #f0f0f0; /* Очень светлая граница, почти невидимая */
+    border-radius: 12px;
+    margin-block-end: 16px;
+    width: 100%;
+
+    /* Ограничиваем максимальную ширину элемента для центрирования */
+    max-width: 900px;
+
+    /* Стили тени */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+    /* Убираем hover-эффект для тени и подчеркивание */
+    transition: box-shadow 0.2s ease-in-out, border-color 0.3s ease;
+
+    /* УДАЛЕНО: Эффект при наведении (hover) */
+    /* &:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    } */
+
+    /* Убираем внутренний отступ сверху/снизу, оставим только для summary */
+    padding: 0;
+
+    /* Сдвигаем padding-inline для красивого отступа содержимого (px-6 = 1.5rem = 24px) */
+    padding-inline: 24px;
+
+    /* Важно для трюка с max-height и плавной анимации */
+    overflow: hidden;
+
+
+    /* Стили для заголовка (summary) */
+    summary {
+        /* Убираем стандартный маркер-стрелку */
+        list-style: none;
+        cursor: pointer;
+
+        /* Настройки для заголовка (py-6 = 1.5rem = 24px) */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-block: 24px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #253749;
+
+        /* УДАЛЕНО: Подчеркивание при наведении */
+        /* &:hover {
+            text-decoration: underline;
+        } */
+
+        /* Кастомная стрелка через псевдоэлемент ::after */
+        &::after {
+            content: '⌄'; /* Символ стрелки вниз */
+            font-size: 24px;
+            font-weight: 700;
+            color: #253749;
+            transform: rotate(0deg);
+            transition: transform 0.25s ease; /* Плавный поворот стрелки */
+            margin-inline-start: 16px;
+        }
+
+        /* Убираем маркер для WebKit браузеров */
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    /* ========================================= */
+    /* Стили для открытого состояния details[open] */
+    /* ========================================= */
+    &[open] {
+        border-color: #d0d0d0; /* Небольшое изменение границы при открытии */
+
+        /* Поворот стрелки на 180 градусов (становится стрелкой вверх) */
+        summary::after {
+            transform: rotate(180deg);
+        }
+
+        /* Раскрытие контента */
+        p {
+            max-height: 1000px;
+            opacity: 1;
+            padding-block-end: 24px; /* Отступ снизу для содержимого (pb-6 = 24px) */
+        }
+    }
+
+    /* ========================================= */
+    /* Стили для контента (элемент p) */
+    /* ========================================= */
+    p {
+        /* Начальное состояние: скрыто и без отступов */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+
+        /* УВЕЛИЧЕНА ПЛАВНОСТЬ: время 0.6s, функция сглаживания cubic-bezier */
+        transition: max-height 0.6s cubic-bezier(0.25, 0.1, 0.25, 1.0), opacity 0.6s ease-in-out;
+
+        /* Сброс стандартных margin и стили текста */
+        margin: 0;
+        line-height: 1.6;
+        color: rgba(41, 64, 86, 0.75);
+    }
+}
